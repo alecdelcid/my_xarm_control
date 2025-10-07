@@ -34,14 +34,6 @@ source install/setup.bash
 # Basic movement demo
 ros2 run my_xarm_control basic_movement
 
-# MoveIt demo
-ros2 run my_xarm_control moveit_example
-
-# Gripper control demo
-ros2 run my_xarm_control gripper_control
-
-# Interactive gripper control
-ros2 run my_xarm_control gripper_control --interactive
 ```
 
 ### Use launch file:

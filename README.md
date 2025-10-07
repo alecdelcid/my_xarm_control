@@ -9,18 +9,7 @@ This package contains custom Python scripts for controlling the xArm robot using
 - Demonstrates basic initialization, joint movements, and cartesian movements
 - Good for understanding the low-level service interface
 
-### 2. moveit_example.py
-- Uses MoveIt Python API for motion planning
-- Includes joint space planning, cartesian space planning, and path planning
-- Supports gripper control if available
-- More sophisticated motion planning capabilities
-
-### 3. gripper_control.py
-- Dedicated gripper control script
-- Supports both programmatic and interactive control
-- Can set precise gripper positions or use presets
-
-### 4. vacuum_gripper_demo.py
+### 2. vacuum_gripper_demo.py
 - **NEW**: Vacuum gripper control for MoveIt simulation only
 - Demonstrates complete pick and place operations using vacuum gripper
 - Includes up/down movements with vacuum activation/deactivation

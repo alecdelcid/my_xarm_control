@@ -10,7 +10,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/launch', ['launch/my_xarm_demo.launch.py']),
+        ('share/' + package_name + '/launch', [
+            'launch/my_xarm_demo.launch.py',
+            'launch/vacuum_gripper_demo.launch.py'
+        ]),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -24,6 +27,7 @@ setup(
             'basic_movement = my_xarm_control.basic_movement:main',
             'moveit_example = my_xarm_control.moveit_example:main',
             'gripper_control = my_xarm_control.gripper_control:main',
+            'vacuum_gripper_demo = my_xarm_control.vacuum_gripper_demo:main',
         ],
     },
 )

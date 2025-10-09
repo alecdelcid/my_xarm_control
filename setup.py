@@ -11,8 +11,9 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', [
-            'launch/my_xarm_demo.launch.py',
-            'launch/vacuum_gripper_demo.launch.py'
+            'launch/lite6_vacuum_gripper_demo.launch.py',
+            'launch/lite6_demo.launch.py',
+            'launch/digital_twin_demo.launch.py'
         ]),
     ],
     install_requires=['setuptools'],
@@ -25,9 +26,8 @@ setup(
     entry_points={
         'console_scripts': [
             'basic_movement = my_xarm_control.basic_movement:main',
-            'moveit_example = my_xarm_control.moveit_example:main',
-            'gripper_control = my_xarm_control.gripper_control:main',
             'vacuum_gripper_demo = my_xarm_control.vacuum_gripper_demo:main',
+            'digital_twin_controller = my_xarm_control.digital_twin_controller:main',
         ],
     },
 )

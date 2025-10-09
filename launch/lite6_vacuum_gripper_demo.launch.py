@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Launch file for vacuum gripper demonstration
-Launches xarm6 with vacuum gripper in Gazebo MoveIt simulation and runs the demo
+Launch file for vacuum gripper demonstration with xArm Lite 6
+Launches lite6 with vacuum gripper in Gazebo MoveIt simulation and runs the demo
 """
 
 from launch import LaunchDescription
@@ -35,10 +35,10 @@ def generate_launch_description():
     return LaunchDescription([
         demo_type_arg,
         
-        # Launch xarm6 with vacuum gripper in Gazebo MoveIt
+        # Launch lite6 with vacuum gripper in Gazebo MoveIt
         ExecuteProcess(
             cmd=[
-                'ros2', 'launch', 'xarm_moveit_config', 'xarm6_moveit_gazebo.launch.py',
+                'ros2', 'launch', 'xarm_moveit_config', 'lite6_moveit_gazebo.launch.py',
                 'add_vacuum_gripper:=true'
             ],
             output='screen'

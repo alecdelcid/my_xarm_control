@@ -18,11 +18,11 @@ class VacuumGripperDemo(Node):
     def __init__(self):
         super().__init__('vacuum_gripper_demo')
         
-        # Create action client for joint trajectory
+        # Create action client for lite6 trajectory controller ONLY
         self.trajectory_client = ActionClient(
             self, 
             FollowJointTrajectory, 
-            '/xarm6_traj_controller/follow_joint_trajectory'
+            '/lite6_traj_controller/follow_joint_trajectory'
         )
         
         # Create publisher for vacuum gripper control
@@ -34,10 +34,10 @@ class VacuumGripperDemo(Node):
         
         # Wait for action server
         if not self.trajectory_client.wait_for_server(timeout_sec=10.0):
-            self.get_logger().error('Trajectory action server not available after 10 seconds')
-            raise Exception('Trajectory action server not available')
+            self.get_logger().error('Lite 6 trajectory controller not available after 10 seconds')
+            raise Exception('Lite 6 trajectory controller not available')
         
-        self.get_logger().info("Vacuum gripper demo initialized successfully")
+        self.get_logger().info("Vacuum gripper demo initialized successfully for Lite 6")
         
         # Define key positions
         self.home_position = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]

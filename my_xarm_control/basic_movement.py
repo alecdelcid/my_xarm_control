@@ -54,22 +54,22 @@ class BasicXArmController(Node):
             from control_msgs.action import FollowJointTrajectory
             from rclpy.action import ActionClient
             
-            # Create action client for joint trajectory
+            # Create action client for lite6 trajectory controller ONLY
             self.trajectory_client = ActionClient(
                 self, 
                 FollowJointTrajectory, 
-                '/xarm6_traj_controller/follow_joint_trajectory'
+                '/lite6_traj_controller/follow_joint_trajectory'
             )
             
             # Wait for action server
             if not self.trajectory_client.wait_for_server(timeout_sec=5.0):
-                self.get_logger().error('Trajectory action server not available')
-                raise Exception('Trajectory action server not available')
+                self.get_logger().error('Lite 6 trajectory controller not available after 5 seconds')
+                raise Exception('Lite 6 trajectory controller not available')
             
-            self.get_logger().info("Trajectory action client setup complete")
+            self.get_logger().info("Lite 6 trajectory action client setup complete")
             
         except Exception as e:
-            self.get_logger().error(f"Failed to setup trajectory control: {str(e)}")
+            self.get_logger().error(f"Failed to setup Lite 6 trajectory control: {str(e)}")
             raise
     
     def wait_for_services(self):

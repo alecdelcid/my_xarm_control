@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Launch file for xArm control demos
+Launch file for xArm Lite 6 control demos
 """
 
 from launch import LaunchDescription
@@ -33,6 +33,13 @@ def launch_setup(context, *args, **kwargs):
             name='gripper_demo',
             output='screen'
         )
+    elif demo_type == 'vacuum':
+        demo_node = Node(
+            package='my_xarm_control',
+            executable='vacuum_gripper_demo',
+            name='vacuum_gripper_demo',
+            output='screen'
+        )
     else:
         # Default to basic
         demo_node = Node(
@@ -50,7 +57,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'demo_type',
             default_value='basic',
-            description='Type of demo to run: basic, moveit, or gripper'
+            description='Type of demo to run: basic, moveit, gripper, or vacuum'
         ),
         OpaqueFunction(function=launch_setup)
     ])
